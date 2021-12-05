@@ -1,0 +1,22 @@
+{
+  "name": "meet-user-time",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "David Nery",
+  "license": "MIT",
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@types/chrome": "^0.0.166",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^10.0.0",
+    "glob": "^7.2.0",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Meet User Time",
+  "description": "Monitore and download how much the users talk in a Google Meet call.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["downloads", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://meet.google.com/*"],
+      "js": ["index.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": {
+      "32": "/images/32.png",
+      "48": "/images/48.png"
+    }
+  },
+  "icons": {
+    "32": "/images/32.png",
+    "48": "/images/48.png"
+  }
+}
