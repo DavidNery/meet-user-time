@@ -24,7 +24,7 @@ const run = target => {
         if (participants[user].oldValue !== record.oldValue) {
           participants[user].oldValue = record.oldValue;
           if (record.target.classList.contains('FTMc0c')) {
-            const last = participants[user].vezes[participants[user].vezes.length - 1];
+            let last = participants[user].vezes[participants[user].vezes.length - 1];
             if (!last || last.closed)
               last = participants[user].vezes[participants[user].vezes.length - 1] = {};
             last.closed = new Date().getTime();
@@ -55,14 +55,14 @@ const stop = () => {
     finalData[participant] = {};
 
     finalData[participant].tempo = convertMillisecondsToDigitalClock(vezes.reduce((total, atual) => {
-      if(!atual.opened) return total;
+      if (!atual.opened) return total;
       return total + ((atual.closed || new Date().getTime()) - atual.opened);
     }, 0));
     finalData[participant].vezes = vezes.length;
     finalData[participant].detailed = vezes.map(vez => {
-      if(!vez.opened) return null;
+      if (!vez.opened) return null;
       return {
-        opened:new Date(vez.opened).toLocaleDateString(undefined, {
+        opened: new Date(vez.opened).toLocaleDateString(undefined, {
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit'
