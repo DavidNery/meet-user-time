@@ -3,9 +3,24 @@ import convertMillisecondsToDigitalClock from './utils/time';
 let participants = {};
 let observer;
 
+const checkOpenedMicrophones = () => {
+  document.querySelectorAll('.JHK7jb.Nep7Ue').forEach(target => {
+    const user = target.parentNode.parentNode.querySelector('[data-self-name="Você"]').innerHTML;
+    participants[user] = {
+      oldValue: record.oldValue,
+      vezes: []
+    };
+
+    if (!target.classList.contains('FTMc0c')) {
+      participants[user].vezes.push({ opened: new Date().getTime() });
+    }
+  });
+}
+
 const run = target => {
 
   participants = {};
+  checkOpenedMicrophones();
   observer = new MutationObserver(mutations => {
     for (const record of mutations) {
       const { target } = record;
